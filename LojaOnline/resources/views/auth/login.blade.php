@@ -1,22 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>BrisaGamer</title>
+
     {{-- Ícone da BrisaGamer na aba do navegador --}}
     <link rel="icon"
         type="image/png"
         href="{{ asset('img/EmblemaOnda.png') }}">
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet">
+
     <!-- Identidade visual Neon Sunset (somente estilos) -->
     <link rel="stylesheet" href="{{ asset('css/neon-sunset.css') }}">
+
 </head>
 
 <body class="bg-light">
-
 
     <!-- Cabeçalho BrisaGamer -->
     <nav class="navbar navbar-brisa">
@@ -50,10 +56,13 @@
     </nav>
 
 <main class="container py-5">
+
     <div class="row justify-content-center">
+
         <div class="col-md-6 col-lg-5">
 
             <div class="card border-0 shadow rounded-4">
+
                 <div class="card-body p-4 p-md-5">
 
                     <h3 class="fw-bold text-center">
@@ -64,19 +73,9 @@
                         Crie sua conta na BrisaGamer e aproveite o universo gamer!
                     </p>
 
-                    <!-- Exibe erros de validação. -->
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $erro)
-                                    <li>{{ $erro }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
 
     <form action="{{ route('cliente.cadastrar') }}" method="POST">
+
         @csrf
 
             {{-- ==========================================
@@ -89,7 +88,9 @@
 
                 {{-- Nome completo --}}
                 <div class="col-md-12">
+
                     <label for="name" class="form-label">Nome completo</label>
+
                     <input type="text"
                         id="name"
                         name="name"
@@ -98,11 +99,14 @@
                         maxlength="255"
                         autocomplete="name"
                         required>
+
                 </div>
 
                 {{-- E-mail --}}
                 <div class="col-md-6">
+
                     <label for="email" class="form-label">E-mail</label>
+
                     <input type="email"
                         id="email"
                         name="email"
@@ -110,11 +114,14 @@
                         value="{{ old('email') }}"
                         autocomplete="email"
                         required>
+
                 </div>
 
                 {{-- Telefone --}}
                 <div class="col-md-6">
+
                     <label for="telefone" class="form-label">Telefone / WhatsApp</label>
+
                     <input type="tel"
                         id="telefone"
                         name="telefone"
@@ -124,11 +131,32 @@
                         maxlength="20"
                         autocomplete="tel"
                         required>
+
+                </div>
+
+                {{-- CPF --}}
+                <div class="col-md-6">
+
+                    <label for="cpf" class="form-label">CPF</label>
+
+                    <input type="text"
+                        id="cpf"
+                        name="cpf"
+                        class="form-control"
+                        value="{{ old('cpf') }}"
+                        placeholder="000.000.000-00"
+                        maxlength="14"
+                        inputmode="numeric"
+                        autocomplete="off"
+                        required>
+
                 </div>
 
                 {{-- Senha --}}
                 <div class="col-md-6">
+
                     <label for="password" class="form-label">Senha</label>
+
                     <input type="password"
                         id="password"
                         name="password"
@@ -136,13 +164,16 @@
                         minlength="8"
                         autocomplete="new-password"
                         required>
+
                 </div>
 
                 {{-- Confirmar senha --}}
                 <div class="col-md-6">
+
                     <label for="password_confirmation" class="form-label">
                         Confirmar senha
                     </label>
+
                     <input type="password"
                         id="password_confirmation"
                         name="password_confirmation"
@@ -150,6 +181,7 @@
                         minlength="8"
                         autocomplete="new-password"
                         required>
+
                 </div>
 
             </div>
@@ -166,7 +198,9 @@
 
                 {{-- CEP --}}
                 <div class="col-md-4">
+
                     <label for="cep" class="form-label">CEP</label>
+
                     <input type="text"
                         id="cep"
                         name="cep"
@@ -176,11 +210,14 @@
                         maxlength="9"
                         autocomplete="postal-code"
                         required>
+
                 </div>
 
                 {{-- Rua / Avenida --}}
                 <div class="col-md-8">
+
                     <label for="logradouro" class="form-label">Rua / Avenida</label>
+
                     <input type="text"
                         id="logradouro"
                         name="logradouro"
@@ -189,11 +226,14 @@
                         maxlength="255"
                         autocomplete="address-line1"
                         required>
+
                 </div>
 
                 {{-- Número --}}
                 <div class="col-md-3">
+
                     <label for="numero" class="form-label">Número</label>
+
                     <input type="text"
                         id="numero"
                         name="numero"
@@ -201,13 +241,16 @@
                         value="{{ old('numero') }}"
                         maxlength="20"
                         required>
+
                 </div>
 
                 {{-- Complemento --}}
                 <div class="col-md-9">
+
                     <label for="complemento" class="form-label">
                         Complemento (opcional)
                     </label>
+
                     <input type="text"
                         id="complemento"
                         name="complemento"
@@ -216,11 +259,14 @@
                         maxlength="255"
                         placeholder="Apartamento, bloco, casa..."
                         autocomplete="address-line2">
+
                 </div>
 
                 {{-- Bairro --}}
                 <div class="col-md-5">
+
                     <label for="bairro" class="form-label">Bairro</label>
+
                     <input type="text"
                         id="bairro"
                         name="bairro"
@@ -228,11 +274,14 @@
                         value="{{ old('bairro') }}"
                         maxlength="255"
                         required>
+
                 </div>
 
                 {{-- Cidade --}}
                 <div class="col-md-5">
+
                     <label for="cidade" class="form-label">Cidade</label>
+
                     <input type="text"
                         id="cidade"
                         name="cidade"
@@ -241,11 +290,14 @@
                         maxlength="255"
                         autocomplete="address-level2"
                         required>
+
                 </div>
 
                 {{-- Estado --}}
                 <div class="col-md-2">
+
                     <label for="estado" class="form-label">UF</label>
+
                     <input type="text"
                         id="estado"
                         name="estado"
@@ -256,6 +308,7 @@
                         placeholder="PR"
                         autocomplete="address-level1"
                         required>
+
                 </div>
 
             </div>
@@ -263,26 +316,155 @@
             {{-- Botão de cadastro --}}
             <button type="submit"
                     class="btn btn-primary w-100 py-2">
+
                 Criar conta
+
             </button>
 
         </form>
 
-
                     {{-- Retorna à loja e solicita a abertura do modal de login. --}}
                     <p class="text-center mt-4 mb-0">
+
                         Já possui conta?
 
                         <a href="{{ route('loja.index') }}?abrirLogin=1">
                             Entrar
                         </a>
+
                     </p>
 
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </main>
 
+    {{-- ==========================================
+        NOTIFICAÇÕES DE ERRO - BRISAGAMER
+        Exibe os erros de validação na tela.
+    ========================================== --}}
+
+    @if ($errors->any())
+
+        {{-- Container que agrupa as notificações. --}}
+        <div class="brisa-toast-container" id="brisaToastContainer">
+
+            {{-- Percorre todas as mensagens de erro. --}}
+            @foreach ($errors->all() as $erro)
+
+                {{-- Estrutura individual da notificação. --}}
+                <div class="brisa-toast" role="alert">
+
+                    {{-- Ícone de atenção. --}}
+                    <span class="brisa-toast-icon">!</span>
+
+                    {{-- Mensagem de erro. --}}
+                    <span class="brisa-toast-message">
+                        {{ $erro }}
+                    </span>
+
+                    {{-- Botão para fechar manualmente. --}}
+                    <button type="button"
+                        class="brisa-toast-close"
+                        aria-label="Fechar notificação">
+                        &times;
+                    </button>
+
+                </div>
+
+            @endforeach
+
+        </div>
+
+    @endif
+
+    {{-- ==========================================
+        CONTROLE DAS NOTIFICAÇÕES
+        Gerencia o fechamento automático e manual.
+    ========================================== --}}
+
+    <script>
+
+        // Seleciona todas as notificações existentes.
+        document.querySelectorAll('.brisa-toast').forEach(function (toast) {
+
+            // Fecha automaticamente após 5 segundos.
+            const temporizador = setTimeout(function () {
+                fecharNotificacao(toast);
+            }, 5000);
+
+            // Permite fechar manualmente pelo botão X.
+            toast.querySelector('.brisa-toast-close')
+                .addEventListener('click', function () {
+                    clearTimeout(temporizador);
+                    fecharNotificacao(toast);
+                });
+
+        });
+
+        // Função responsável pelo fechamento da notificação.
+        function fecharNotificacao(toast) {
+
+            // Adiciona a animação de saída.
+            toast.classList.add('brisa-toast-saindo');
+
+            // Aguarda a animação terminar.
+            setTimeout(function () {
+
+                // Remove a notificação da página.
+                toast.remove();
+
+                // Verifica se ainda existem notificações.
+                const container = document.getElementById('brisaToastContainer');
+
+                // Remove o container quando estiver vazio.
+                if (container && container.children.length === 0) {
+                    container.remove();
+                }
+
+            }, 350);
+        }
+
+    </script>
+
+    {{-- ==========================================
+        MÁSCARA DO CPF
+        Formata automaticamente o CPF digitado.
+    ========================================== --}}
+
+    <script>
+
+        // Localiza o campo CPF do formulário.
+        const campoCpf = document.getElementById('cpf');
+
+        // Aplica a máscara durante a digitação.
+        if (campoCpf) {
+
+            campoCpf.addEventListener('input', function (e) {
+
+                // Remove caracteres que não são números.
+                let cpf = e.target.value.replace(/\D/g, '');
+
+                // Limita a entrada a 11 números.
+                cpf = cpf.substring(0, 11);
+
+                // Formata o CPF: 000.000.000-00.
+                cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+                cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+                cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
+                // Atualiza o valor exibido no campo.
+                e.target.value = cpf;
+
+            });
+
+        }
+
+    </script>
 </body>
 </html>

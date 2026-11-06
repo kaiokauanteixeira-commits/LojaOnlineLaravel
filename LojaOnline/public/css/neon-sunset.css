@@ -691,4 +691,131 @@ hr, .border-bottom, .border-top { border-color: rgba(188, 144, 228, .22) !import
         border-color: #e56ae8;
         box-shadow: 0 0 0 3px rgba(213, 83, 218, 0.12);
     }
+    
+    /* ==========================================
+      NOTIFICAÇÕES DE ERRO - BRISAGAMER
+      Estilização das mensagens de validação.
+    ========================================== */
+
+    /* Posiciona as notificações no canto inferior direito. */
+    .brisa-toast-container {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        z-index: 9999;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        width: min(380px, calc(100vw - 30px));
+    }
+
+    /* Define a aparência visual de cada notificação. */
+    .brisa-toast {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        padding: 16px;
+
+        /* Fundo em degradê seguindo a identidade visual da loja. */
+        background: linear-gradient(135deg, #291b43, #38204d);
+
+        /* Borda roxa e cantos arredondados. */
+        border: 1px solid #a34d9b;
+        border-radius: 12px;
+
+        color: #ffffff;
+
+        /* Sombra para destacar a notificação do restante da página. */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+        /* Animação de entrada. */
+        animation: brisaToastEntrada 0.35s ease forwards;
+    }
+
+    /* Estiliza o ícone de atenção da notificação. */
+    .brisa-toast-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 25px;
+        height: 25px;
+
+        border-radius: 50%;
+        background: rgba(255, 130, 177, 0.18);
+        border: 1px solid #ff82b1;
+
+        color: #ff9bc1;
+        font-weight: bold;
+    }
+
+    /* Define a aparência do texto de erro. */
+    .brisa-toast-message {
+        flex: 1;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #f5eaff;
+    }
+
+    /* Estiliza o botão de fechamento manual. */
+    .brisa-toast-close {
+        background: transparent;
+        border: none;
+
+        color: #d9b5e9;
+        font-size: 23px;
+        line-height: 1;
+
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    /* Muda a cor do botão quando o usuário passa o mouse. */
+    .brisa-toast-close:hover {
+        color: #ff9bc1;
+    }
+
+    /* Animação de entrada pelo lado direito. */
+    @keyframes brisaToastEntrada {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Aplica a animação de saída da notificação. */
+    .brisa-toast-saindo {
+        animation: brisaToastSaida 0.35s ease forwards;
+    }
+
+    /* Faz a notificação desaparecer suavemente. */
+    @keyframes brisaToastSaida {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        to {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+    }
+
+    /* Ajusta o posicionamento em celulares. */
+    @media (max-width: 576px) {
+        .brisa-toast-container {
+            right: 15px;
+            bottom: 15px;
+            width: calc(100vw - 30px);
+        }
+    }
+
 
